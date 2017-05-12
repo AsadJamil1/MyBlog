@@ -3,6 +3,7 @@
 <head>
   <title>MyBlog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,12 +23,32 @@
 
 	<ul>
 		<li class="category">Social</li>
-		<li><a href="https://github.com/AsadMengal007">Github</li>
+		<li><a href="https://www.facebook.com/asadmengal001">Facebook</a></li>
+		<li><a href="https://plus.google.com/u/0/112547103966521992599">GooglePlus</a></li>
+		<li><a href="https://github.com/AsadJamil1">Github</a></li>
+		<li><a href="mailto:asadmengal158@gmail.com">Email</a></li>
 	</ul>
 
+	<p class="sign_in">Admin Login</p>
 </div>
 
-<%= yield %>
+	<div id= "main_content">
+		<div id= "header">
+			
+			<p>All Posts</p>
 
+			<div class="buttons">
+				<button class="button">	<a> 
+				<%= link_to "New Post", new_post_path %></a> </button>
+				<button class="button">Log Out</button>
+			</div>
+		</div>
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert") %>
+		<% end %>
+	
+		<%= yield %>
+	</div>
 </body>
 </html>
