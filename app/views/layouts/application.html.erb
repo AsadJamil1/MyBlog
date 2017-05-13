@@ -28,8 +28,9 @@
 		<li><a href="https://github.com/AsadJamil1">Github</a></li>
 		<li><a href="mailto:asadmengal158@gmail.com">Email</a></li>
 	</ul>
-
+	<% if !user_signed_in? %>
 	<p class="sign_in">Admin Login</p>
+	<% end %>
 </div>
 
 	<div id= "main_content">
@@ -42,11 +43,13 @@
 				<%= link_to "Back to All Posts", root_path %>
 				<% end %>
 
+			<% if user_signed_in? %>	
 			<div class="buttons">
 				<button class="button">	<a> 
 				<%= link_to "New Post", new_post_path %></a> </button>
 				<button class="button">Log Out</button>
 			</div>
+			<% end %>
 		</div>
 
 		<% flash.each do |name, msg| %>
